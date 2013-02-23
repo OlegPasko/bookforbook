@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+body{ background: #1F1F1F; color: #CFCFCF; padding-top: .5em !important}
+input{ background: black; color: white; border-color: #808080; border-style: solid; border-width: 1px; border-radius: 4px; padding: 4px;}
+input[type="submit"]{background: #5F5F5F; color: #DFDFDF; border-style: groove; min-width: 8em}
+a{color: #9F9FFF}
+.logo{text-decoration: none; color: #E89D48}
+.gbentry{position: relative; padding: .5em; margin: 0 0 .5em 0; background: #0F0F0F; border-radius:3px}
+.btitle{font-weight: bold; font-size: 150%}
+.bauthors, .gblink{ opacity: .8 !important}
+.gbentry p {margin-bottom: .5em}
