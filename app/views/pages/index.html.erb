@@ -6,4 +6,9 @@
 	<%= text_field_tag :title %>
 	<%= submit_tag 'Тыц!' %>
 	<% end %>
+	<% if current_user %>
+		<% current_user.books.each do |b| %>
+			<%= b.title %>
+		<% end %>
+	<% end %>
 </div>

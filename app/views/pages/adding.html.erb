@@ -3,13 +3,21 @@
 .btitle{font-weight: bold}
 </style>
 <div class="grid_12">
-<% @entries.each do |e| %>
-	<div class="gbentry" o>
-	<div style="float:right"><img src="<%=e.image_link%>"/></div>
-	<p class="btitle"><%=e.title%></p>
-	<p class="bauthors"><%=e.authors%></p>
-	<p><%=link_to 'view on google books', e.info_link %></p>
-	<div class="clear"></div>
-	</div>
-<% end %>
+	<% @entries.each do |e| %>
+		<div class="gbentry">
+				<div style="float:right">
+					<img src="<%=e.image_link%>"/>
+				</div>
+				<p class="btitle"><%=e.title%></p>
+				<p class="bauthors"><%=e.authors%></p>
+				<p><%=link_to 'view on google books', e.info_link %></p>
+				<%= form_for @book do |f| %>
+					<%= f.hidden_field :title, value: e.title %>
+					<%= f.hidden_field :author, value: e.authors %>
+					<%= f.hidden_field :cover, value: e.image_link %>
+					<%= f.submit "Add book" if current_user %>
+				<% end %>
+				<div class="clear"></div>
+		</div>
+	<% end %>
 </div>
