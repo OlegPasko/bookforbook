@@ -1,6 +1,8 @@
 Bookforbook::Application.routes.draw do
   resources :books
   resources :pages
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
   match '/auth/google_oauth2/callback', to: 'sessions#create'
   match '/adding' => 'pages#adding'
 
