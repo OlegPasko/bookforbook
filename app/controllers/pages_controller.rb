@@ -1,4 +1,9 @@
 class PagesController < ApplicationController
+  
+  def adding
+    
+  end
+  
   # GET /pages
   # GET /pages.json
   def index

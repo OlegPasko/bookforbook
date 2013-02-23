@@ -2,13 +2,9 @@
 	Найти
 </div>
 <div class="grid_6">
-	<%= form_for @book do |f| %>
-		<%= f.text_field :title %>
-		<%= f.submit %>
+	<%= form_tag ('/adding') do %>
+	<%= text_field_tag :title %>
+	<%= submit_tag 'Тыц!' %>
 	<% end %>
 	
-	<br />
-	<% Book.all.each do |b| %>
-		<%= b.title %><br />
-	<% end %>
 </div>
