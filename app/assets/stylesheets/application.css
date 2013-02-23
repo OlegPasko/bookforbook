@@ -31,3 +31,14 @@ h2{margin-top: 1.5em; margin-bottom: .4em}
 .search-input{ width: 25em }
 .search-submit{ width: 10em }
 .clear{ clear: both }
+.new_message {
+	cursor: pointer;
+}
+.messages_board {
+	position:absolute;
+  	top: 50px;
+  	margin-left: -190px;
+  	width: 400px;
+  	background-color: #333333;
+  	padding: 10px;
+}

@@ -19,4 +19,8 @@ $(document).ready(function(){
 		$(this).slideToggle();	
 		$(this).next().slideToggle();
 	});
+	
+	$('.new_message').click(function(){
+		$(this).next().slideToggle();
+	});
 });

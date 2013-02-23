@@ -1,8 +1,7 @@
 Bookforbook::Application.routes.draw do
-  resources :messages
-
-
-  resources :books
+  resources :books do
+    resources :messages
+  end
   resources :users
   resources :pages
   match 'auth/failure', to: redirect('/')
