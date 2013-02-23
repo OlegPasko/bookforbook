@@ -1,7 +1,7 @@
 <div class="first">
 <h2>I am looking for books</h2>
 <%= form_for :search, :url => search_path, :html => { :method => :get, :class => "" } do |f| %>
-	<%= f.text_field :keywords, :placeholder => "I am looking for book", class: 'search-input' %>
+	<%= f.text_field :keywords, class: 'search-input' %>
 	<%= f.submit 'Look for book', class: 'search-submit' %>
 <% end %>
 
@@ -25,7 +25,12 @@
 		<div class="gbentry">
 		<div style="float:left; padding-right: 1em"> 
 		<img src="<%=b.cover%>" style="height:100px"/></div>
-		<p class="btitle"><%=b.title%></p>
+		<p class="btitle">
+			<%=b.title%>
+			<%= link_to b, method: :delete, confirm: "Book will be deleted. Are you sure?" do %>
+				<i class="icon-remove icon-white"></i>
+			<% end %>
+		</p>
 		<% if b.comment %>
 			<div class="edit_comment"><%= b.comment %></div>
 			<div class="form_comment" style="display: none;">

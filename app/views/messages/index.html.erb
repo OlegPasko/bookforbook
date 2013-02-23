@@ -16,3 +16,9 @@
   </tr>
 <% end %>
 </table>
+						<%= form_for ([@book, Message.new]) do |f| %>
+							<%= f.text_field :body, style: "width: 800px" %>
+							<%= f.hidden_field :book_id, value: @book.id %>
+							<%= f.hidden_field :recepient_id, value: @book.user.id %>
+							<%= f.submit "Send message" %>
+						<% end %>

@@ -1,4 +1,4 @@
-<div class="grid_12">
+
 	<h2>Search results: «<%= params[:search][:keywords] %>»</h2>
 	
 	<%= render :partial => 'adsense' %>
@@ -8,22 +8,25 @@
 			<tr><th>Cover</th><th>Name</th><th>Author</th><th></th></tr>
 		</thead>
 		<tbody>
+		<% if params[:search][:keywords] != '' %>
 		<% @books.each do |b| %>
 			<tr>
-				<td><%= image_tag b.cover, width: '64px' %></td><td><%= b.title %><br /><i><%= b.comment %></i><br /><b>User want: </b><%= b.user.iwant %></td><td><%= b.author %></td><td><%= link_to "Send message", "#" %></td>
-				<tr>
+				<td><%= image_tag b.cover, width: '64px' %></td><td><%= b.title %><br /><i><%= b.comment %></i><br /><b>User want: </b><%= b.user.iwant %></td><td><%= b.author %></td><td><%= link_to "Send message", "#", class: "send_message_link" %></td>
+				<tr style="display: none;">
 					<td colspan="4">
 						
 						<%= form_for ([b, Message.new]) do |f| %>
 							<%= f.text_field :body, style: "width: 800px" %>
 							<%= f.hidden_field :book_id, value: b.id %>
 							<%= f.hidden_field :recepient_id, value: b.user.id %>
-							<%= f.submit "Send message", style: "float: right" %>
+							<%= f.submit "Send message" %>
 						<% end %>
 					</td>
 				</tr>
 			</tr>
 		<% end %>
+		<% else %>
+			<tr><td colspan="4">Oops :(</td></tr>
+		<% end %>
 		</tbody>
 	</table>
-</div>
