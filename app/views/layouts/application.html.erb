@@ -28,5 +28,6 @@
     <% end %>
 	<%= yield %>
 </div>
+<%= render '/layouts/metrics' if Rails.env.production? %>
 </body>
 </html>

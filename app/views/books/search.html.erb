@@ -1,15 +1,26 @@
 <div class="grid_12">
 	<h2>Search results: «<%= params[:search][:keywords] %>»</h2>
-	<table class="table table-hover">
+	<table class="table">
 		<thead>
 			<tr><th>Cover</th><th>Name</th><th>Author</th><th></th></tr>
 		</thead>
 		<tbody>
-	<% @books.each do |b| %>
-		<tr>
-			<td><%= image_tag b.cover, width: '64px' %></td><td><%= b.title %><br /><b>User want: </b><%= b.user.iwant %></td><td><%= b.author %></td><td><%= link_to "Send message", "#" %></td>
-		</tr>
-	<% end %>
+		<% @books.each do |b| %>
+			<tr>
+				<td><%= image_tag b.cover, width: '64px' %></td><td><%= b.title %><br /><i><%= b.comment %></i><br /><b>User want: </b><%= b.user.iwant %></td><td><%= b.author %></td><td><%= link_to "Send message", "#" %></td>
+				<tr>
+					<td colspan="4">
+						
+						<%= form_for ([b, Message.new]) do |f| %>
+							<%= f.text_field :body, style: "width: 800px" %>
+							<%= f.hidden_field :book_id, value: b.id %>
+							<%= f.hidden_field :recepient_id, value: b.user.id %>
+							<%= f.submit "Send message", style: "float: right" %>
+						<% end %>
+					</td>
+				</tr>
+			</tr>
+		<% end %>
 		</tbody>
 	</table>
 </div>
