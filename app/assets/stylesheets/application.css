@@ -20,3 +20,5 @@ a{color: #9F9FFF}
 .btitle{font-weight: bold; font-size: 150%}
 .bauthors, .gblink{ opacity: .8 !important}
 .gbentry p {margin-bottom: .5em}
+.edit_comment {cursor: pointer}
+

@@ -3,8 +3,8 @@ class UsersController < ApplicationController
     @user = current_user
 
     respond_to do |format|
-      if @user.update_attributes(params[:message])
-        format.html { redirect_to @user, notice: 'Message was successfully updated.' }
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to :back, notice: 'I Want was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

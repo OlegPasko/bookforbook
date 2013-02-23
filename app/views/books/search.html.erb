@@ -7,7 +7,7 @@
 		<tbody>
 	<% @books.each do |b| %>
 		<tr>
-			<td><%= image_tag b.cover, width: '64px' %></td><td><%= b.title %></td><td><%= b.author %></td><td>dddd</td>
+			<td><%= image_tag b.cover, width: '64px' %></td><td><%= b.title %><br /><b>User want: </b><%= b.user.iwant %></td><td><%= b.author %></td><td>dddd</td>
 		</tr>
 	<% end %>
 		</tbody>
