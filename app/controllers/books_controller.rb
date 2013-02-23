@@ -20,4 +20,18 @@ class BooksController < ApplicationController
     end
   end
   
+  def update
+    @book = Book.find(params[:id])
+
+    respond_to do |format|
+      if @book.update_attributes(params[:book])
+        format.html { redirect_to :back, notice: 'Book was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @book.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
 end

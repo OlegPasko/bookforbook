@@ -10,6 +10,7 @@ class PagesController < ApplicationController
   def index
     @pages = Page.all
     @book = Book.new
+    @user = current_user
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pages }

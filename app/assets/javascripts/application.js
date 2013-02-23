@@ -13,3 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+	$('.edit_comment').click(function(){
+		$(this).slideToggle();	
+		$(this).next().slideToggle();
+	});
+});
