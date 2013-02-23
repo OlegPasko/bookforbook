@@ -1,0 +1,14 @@
+<div class="grid_6">
+	Найти
+</div>
+<div class="grid_6">
+	<%= form_for @book do |f| %>
+		<%= f.text_field :title %>
+		<%= f.submit %>
+	<% end %>
+	
+	<br />
+	<% Book.all.each do |b| %>
+		<%= b.title %><br />
+	<% end %>
+</div>

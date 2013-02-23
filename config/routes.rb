@@ -1,9 +1,7 @@
 Bookforbook::Application.routes.draw do
   resources :books
-
-
   resources :pages
-  #match '/oauth2callback'
+  match '/oauth2callback', to: 'sessions#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
