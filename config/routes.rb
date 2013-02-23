@@ -1,7 +1,7 @@
 Bookforbook::Application.routes.draw do
   resources :books
   resources :pages
-  match '/auth/google_oauth2/callback', to: 'sessions#create'
+  match 'http://bookforbook.herokuapp.com/auth/google_oauth2/callback', to: 'sessions#create'
   match '/adding' => 'pages#adding'
 
   # The priority is based upon order of creation:
