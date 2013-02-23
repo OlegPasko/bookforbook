@@ -1,3 +1,15 @@
+<style>
+.gbentry{padding: 3px; margin: 1em 0; background: #A0A0A0; border-radius:3px}
+.btitle{font-weight: bold}
+</style>
 <div class="grid_12">
-	<%= params[:title] if params[:title] %>
+<% @entries.each do |e| %>
+	<div class="gbentry" o>
+	<div style="float:right"><img src="<%=e.image_link%>"/></div>
+	<p class="btitle"><%=e.title%></p>
+	<p class="bauthors"><%=e.authors%></p>
+	<p><%=link_to 'view on google books', e.info_link %></p>
+	<div class="clear"></div>
+	</div>
+<% end %>
 </div>

@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   
   def adding
-    
+	@entries = GoogleBooks.search(params[:title])
   end
   
   # GET /pages

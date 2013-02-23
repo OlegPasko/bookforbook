@@ -46,3 +46,5 @@ gem "omniauth-google-oauth2"
 
 # To use debugger
 # gem 'debugger'
+
+gem 'googlebooks'
