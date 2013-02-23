@@ -1,7 +1,9 @@
 Bookforbook::Application.routes.draw do
   resources :books
   resources :pages
-  match '/oauth2callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+  match '/auth/google_oauth2/callback', to: 'sessions#create'
   match '/adding' => 'pages#adding'
 
   # The priority is based upon order of creation:
