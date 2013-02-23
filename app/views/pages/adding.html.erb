@@ -1,9 +1,7 @@
 <div class="grid_12">
 	<% @entries.each do |e| %>
 		<div class="gbentry">
-				<div style="float:right">
-					<img src="<%=e.image_link%>"/>
-				</div>
+				<img style="float:right" src="<%=e.image_link%>"/>
 				<p class="btitle"><%=e.title%></p>
 				<p class="bauthors"><%=e.authors%></p>
 				<p class="gblink"><%=link_to 'View on Google Books', e.info_link %></p>

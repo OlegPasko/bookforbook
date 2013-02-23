@@ -1,53 +1,59 @@
-<div class="grid_6">
-		<%= form_for :search, :url => search_path, :html => { :method => :get, :class => "" } do |f| %>
-			<%= f.text_field :keywords, :placeholder => "Поиск книг" %>
-			<%= f.submit 'Тыц!' %>
-		<% end %>
-</div>
-<div class="grid_6">
-	<%= form_tag ('/adding') do %>
-	<%= text_field_tag :title %>
-	<%= submit_tag 'Тыц!' %>
-	<% end %>
+<div class="first">
+<h2>I am looking for books</h2>
+<%= form_for :search, :url => search_path, :html => { :method => :get, :class => "" } do |f| %>
+	<%= f.text_field :keywords, :placeholder => "I am looking for book", class: 'search-input' %>
+	<%= f.submit 'Look for book', class: 'search-submit' %>
+<% end %>
+
 </div>
 
-<div class="grid_12">
-	<% if current_user %>
-		<%= form_for @user do |f| %>
-			<%= f.text_field :iwant %>
-			<%= f.submit %>
+<div class="second">
+<h2>I want something like...</h2>
+<p><%= current_user.iwant%></p>
+<%= form_for @user do |f| %>
+	<%= f.text_field :iwant, class: 'search-input' %>
+	<%= f.submit 'Update', class: 'search-submit' %>
+<% end %>
+
+
+<h2>I have books</h2>
+
+<% if current_user %>
+
+	<% current_user.books.each do |b| %>
+
+		<div class="gbentry">
+		<div style="float:left; padding-right: 1em"> 
+		<img src="<%=b.cover%>" style="height:100px"/></div>
+		<p class="btitle"><%=b.title%></p>
+		<% if b.comment %>
+			<div class="edit_comment"><%= b.comment %></div>
+			<div class="form_comment" style="display: none;">
+				<%= form_for b do |f| %>
+					<%= f.text_field :comment %>
+					<%= f.submit %>
+				<% end %>
+			</div>
+		<% else %>
+			<div class="form_comment">
+			<%= form_for b do |f| %>
+				<%= f.text_field :comment %>
+				<%= f.submit %>
+			<% end %>
+			</div>
 		<% end %>
-	
-	
-		<h3><%= "My books: " if current_user.books.count > 0 %></h3>
-		<table class="table table-hover">
-		<thead>
-			<tr><th>Cover</th><th>Name</th><th></th></tr>
-		</thead>
-		<tbody>
-		<% current_user.books.each do |b| %>
-			<tr>
-				<td><%= image_tag b.cover, width: '32px' %></td><td><%= b.title %>
-					<% if b.comment %>
-					<div class="edit_comment"><b><%= b.comment %></b></div>
-					<div class="form_comment" style="display: none;">
-						<%= form_for b do |f| %>
-							<%= f.text_field :comment %>
-							<%= f.submit %>
-						<% end %>
-					</div>
-					<% else %>
-					<div class="form_comment">
-						<%= form_for b do |f| %>
-							<%= f.text_field :comment %>
-							<%= f.submit %>
-						<% end %>
-					</div>
-					<% end %>
-				</td><td></td>
-			</tr>
-		<% end %>
-		</tbody>
-	</table>
+		
+		<div class="clear"></div>
+		</div>
 	<% end %>
+
+
+	<%= form_tag ('/adding') do %>
+		<%= text_field_tag :title, '', class: 'search-input' %>
+		<%= submit_tag 'Pick up book', class: 'search-submit' %>
+	<% end %>
+<% end %>
+
 </div>
+
+<div class="clear"></div>

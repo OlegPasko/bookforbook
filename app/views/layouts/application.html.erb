@@ -7,26 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container_12 header">
-	<div class="grid_6">
-		<h1><%= link_to "Book for book", root_url, class:'logo' %></h1>
-	</div>
-	<div class="grid_6">
-		<div style="float: right;">
-			<% if current_user %>
-	          Signed in as <%= current_user.email %>!
-	          <%= link_to "Sign out", signout_path %>
-	        <% else %>
-	          <%= link_to 'Sign in with Google', 'https://bookforbook.herokuapp.com/auth/google_oauth2' %>
-	        <% end %>
-		</div>
-	</div>
-</div>
-<div class="container_12">
-	<% flash.each do |name, msg| %>
-    	<%= content_tag :div, msg, id: "flash_#{name}" %>
-    <% end %>
-	<%= yield %>
-</div>
+<h1><%= link_to "Book for book", root_url, class:'logo' %></h1>
+
+<p class="signin">
+<% if current_user %>
+	Signed in as <%= current_user.email %><span class="quad">&nbsp;&nbsp;<%= link_to "Sign out", signout_path %>
+<% else %>
+	<%= link_to 'Sign in with Google', 'https://bookforbook.herokuapp.com/auth/google_oauth2' %>
+<% end %>
+</p>
+
+<% flash.each do |name, msg| %>
+	<%= content_tag :div, msg, id: "flash_#{name}" %>
+<% end %>
+<%= yield %>
 </body>
 </html>
