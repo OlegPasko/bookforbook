@@ -1,5 +1,8 @@
 <div class="grid_12">
 	<h2>Search results: «<%= params[:search][:keywords] %>»</h2>
+	
+	<%= render :partial => 'adsense' %>
+	
 	<table class="table">
 		<thead>
 			<tr><th>Cover</th><th>Name</th><th>Author</th><th></th></tr>
