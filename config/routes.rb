@@ -1,4 +1,7 @@
 Bookforbook::Application.routes.draw do
+  resources :books
+
+
   resources :pages
   #match '/oauth2callback'
 
