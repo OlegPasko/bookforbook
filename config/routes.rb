@@ -5,6 +5,7 @@ Bookforbook::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
   match '/auth/google_oauth2/callback', to: 'sessions#create'
   match '/adding' => 'pages#adding'
+  match '/search' => 'books#search'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

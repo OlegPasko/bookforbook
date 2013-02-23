@@ -1,5 +1,9 @@
 class BooksController < ApplicationController
+  has_scope :keywords
   
+  def search
+    @books = params[:search] ? apply_scopes(Book, params[:search]) : []
+  end
   # POST /pages
   # POST /pages.json
   def create

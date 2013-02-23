@@ -1,5 +1,8 @@
 <div class="grid_6">
-	Найти
+	Найти<br />
+		<%= form_for :search, :url => search_path, :html => { :method => :get, :class => "" } do |f| %>
+			<%= f.text_field :keywords, :placeholder => "Поиск по сайту" %>
+		<% end %>
 </div>
 <div class="grid_6">
 	<%= form_tag ('/adding') do %>
