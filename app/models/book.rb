@@ -4,5 +4,5 @@ class Book < ActiveRecord::Base
   belongs_to :user
   has_many :messages, :dependent => :destroy
   
-  scope :keywords, lambda { |keywords| where("title LIKE ? OR author LIKE ?", "%#{keywords}%", "%#{keywords}%") }
+  scope :keywords, lambda { |keywords| where("title LIKE ? OR author LIKE ?", "%#{keywords.downcase}%", "%#{keywords.downcase}%") }
 end
