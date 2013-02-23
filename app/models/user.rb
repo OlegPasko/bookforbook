@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :provider, :uid
+  attr_accessible :email, :name, :provider, :uid, :iwant
   has_many :books
   
   def self.from_omniauth(auth)

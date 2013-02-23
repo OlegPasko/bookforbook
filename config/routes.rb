@@ -1,5 +1,9 @@
 Bookforbook::Application.routes.draw do
+  resources :messages
+
+
   resources :books
+  resources :users
   resources :pages
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'

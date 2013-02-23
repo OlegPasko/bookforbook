@@ -1,5 +1,15 @@
 <div class="grid_12">
+	<h2>Search results: «<%= params[:search][:keywords] %>»</h2>
+	<table class="table table-hover">
+		<thead>
+			<tr><th>Cover</th><th>Name</th><th>Author</th><th></th></tr>
+		</thead>
+		<tbody>
 	<% @books.each do |b| %>
-		<%= b.title %><br />
+		<tr>
+			<td><%= image_tag b.cover, width: '64px' %></td><td><%= b.title %></td><td><%= b.author %></td><td>dddd</td>
+		</tr>
 	<% end %>
+		</tbody>
+	</table>
 </div>

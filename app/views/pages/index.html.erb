@@ -1,7 +1,7 @@
 <div class="grid_6">
-	Найти<br />
 		<%= form_for :search, :url => search_path, :html => { :method => :get, :class => "" } do |f| %>
-			<%= f.text_field :keywords, :placeholder => "Поиск по сайту" %>
+			<%= f.text_field :keywords, :placeholder => "Поиск книг" %>
+			<%= f.submit 'Тыц!' %>
 		<% end %>
 </div>
 <div class="grid_6">
@@ -9,9 +9,28 @@
 	<%= text_field_tag :title %>
 	<%= submit_tag 'Тыц!' %>
 	<% end %>
+</div>
+
+<div class="grid_12">
 	<% if current_user %>
-		<% current_user.books.each do |b| %>
-			<%= b.title %>
+		<%= form_for :user do |f| %>
+			<%= f.text_field :iwant %>
+			<%= f.submit %>
 		<% end %>
+	
+	
+		<h3><%= "My books: " if current_user.books.count > 0 %></h3>
+		<table class="table table-hover">
+		<thead>
+			<tr><th>Name</th><th>Author</th><th></th></tr>
+		</thead>
+		<tbody>
+		<% current_user.books.each do |b| %>
+			<tr>
+				<td><%= b.title %></td><td>dddd</td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
 	<% end %>
 </div>
