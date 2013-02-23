@@ -9,12 +9,13 @@
 
 <div class="second">
 <h2>I want something like...</h2>
+<% if current_user %>
 <p><%= current_user.iwant%></p>
 <%= form_for @user do |f| %>
 	<%= f.text_field :iwant, class: 'search-input' %>
 	<%= f.submit 'Update', class: 'search-submit' %>
 <% end %>
-
+<% end %>
 
 <h2>I have books</h2>
 
