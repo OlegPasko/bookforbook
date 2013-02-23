@@ -16,6 +16,14 @@
 			<% if current_user %>
 	          Signed in as <%= current_user.email %>!
 	          <%= link_to "Sign out", signout_path %>
+	          <% if current_user.messages.any? or Message.where(recepient_id: current_user.id).any? %>
+	          	<div class="new_message"><i class="icon-envelope icon-white"></i> <%= "You have new message"%></div>
+	          	<div class="messages_board" style="display: none;">
+	          		<% allmessages.each do |m| %>
+	          			<%= link_to truncate(m.book.title, :length => 60), book_messages_path(m.book) %><br />
+	          		<% end %>
+	          	</div>
+	          <% end %>
 	        <% else %>
 	          <%= link_to 'Sign in with Google', 'https://bookforbook.herokuapp.com/auth/google_oauth2' %>
 	        <% end %>

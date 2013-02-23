@@ -21,3 +21,12 @@ a{color: #9F9FFF}
 .bauthors, .gblink{ opacity: .8 !important}
 .gbentry p {margin-bottom: .5em}
 .edit_comment {cursor: pointer}
+.new_message {}
+.messages_board {
+	position:absolute;
+  	top: 50px;
+  	margin-left: -190px;
+  	width: 400px;
+  	background-color: #333333;
+  	padding: 10px;
+}
