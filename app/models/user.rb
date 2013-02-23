@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
     create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
-      user.name = auth["info"]["nickname"]
       user.email = auth["info"]["email"]
+      user.name = auth["info"]["email"].split('@')[0]
     end
   end
 end

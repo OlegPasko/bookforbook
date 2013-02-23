@@ -14,10 +14,10 @@
 	<div class="grid_6">
 		<div style="float: right;">
 			<% if current_user %>
-	          Signed in as <%= current_user.name %>!
+	          Signed in as <%= current_user.email %>!
 	          <%= link_to "Sign out", signout_path %>
 	        <% else %>
-	          <%= link_to 'Sign in with Google', '/auth/google_oauth2' %>
+	          <%= link_to 'Sign in with Google', 'https://bookforbook.herokuapp.com/auth/google_oauth2' %>
 	          <%# link_to "Sign in with Facebook", "/auth/facebook" %>
 	        <% end %>
 		</div>
