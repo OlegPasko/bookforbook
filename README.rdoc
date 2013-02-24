@@ -1,2 +1,2 @@
-== BookForBook app
-== GDG Hackathon CK
+== BookForBook app // GDG Hackathon CK
+http://bookforbook.herokuapp.com/

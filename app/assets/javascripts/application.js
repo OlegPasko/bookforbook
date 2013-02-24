@@ -16,11 +16,25 @@
 
 $(document).ready(function(){
 	$('.edit_comment').click(function(){
-		$(this).slideToggle();	
+		$(this).hide();	
 		$(this).next().slideToggle();
 	});
 	
 	$('.new_message').click(function(){
 		$(this).next().slideToggle();
+	});
+	$('.logo').hover(function(){
+		$(this).animate({
+		    opacity: 1
+		  }, 100, function() {
+		  });
+		  }, function(){
+		  	$(this).animate({
+		    opacity: 0.5
+		  }, 100, function() {
+		  });
+	});
+	$('.send_message_link').click(function(){
+		$(this).parent().parent().next().slideToggle();
 	});
 });

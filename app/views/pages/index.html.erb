@@ -9,12 +9,13 @@
 
 <div class="second">
 <h2>I want something like...</h2>
+<% if current_user %>
 <p><%= current_user.iwant%></p>
 <%= form_for @user do |f| %>
 	<%= f.text_field :iwant, class: 'search-input' %>
 	<%= f.submit 'Update', class: 'search-submit' %>
 <% end %>
-
+<% end %>
 
 <h2>I have books</h2>
 
@@ -25,7 +26,12 @@
 		<div class="gbentry">
 		<div style="float:left; padding-right: 1em"> 
 		<img src="<%=b.cover%>" style="height:100px"/></div>
-		<p class="btitle"><%=b.title%></p>
+		<p class="btitle">
+			<%=b.title%>
+			<%= link_to b, method: :delete, confirm: "Book will be deleted. Are you sure?" do %>
+				<i class="icon-remove icon-white"></i>
+			<% end %>
+		</p>
 		<% if b.comment %>
 			<div class="edit_comment"><%= b.comment %></div>
 			<div class="form_comment" style="display: none;">

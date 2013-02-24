@@ -3,4 +3,6 @@ class Message < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :book
+  
+  validates_presence_of :body, :user_id, :book_id, :recepient_id
 end

@@ -4,14 +4,14 @@ class ApplicationController < ActionController::Base
   private
   
   def allmessages
-    mess = []
-    current_user.messages.group(:book_id).each do |m|
-      mess << m
-    end
-    Message.where(recepient_id: current_user.id).group(:book_id).each do |m|
-      mess << m
-    end
-    @allmessages = mess.uniq
+    #mess = []
+    #current_user.messages.each do |m|
+    #  mess << m
+    #end
+    #Message.where(recepient_id: current_user.id).each do |m|
+    #  mess << m
+    #end
+    @allmessages = Message.all
   end
 
   def current_user
