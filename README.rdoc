@@ -1,2 +1,4 @@
 == BookForBook app // GDG Hackathon CK
-http://bookforbook.herokuapp.com/
+http://bookforbook.herokuapp.com
+На качество кода внимания не обращать, — писалось в рамках Хакатона за менее, чем 12 часов :)
+http://cherkassy.gdg.org.ua/2013/02/10/gdg-hackathon-1/
