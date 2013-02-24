@@ -1,0 +1,18 @@
+<div class="results" style="margin-top: .5em">
+	<% @books.each do |b| %>
+		<div class="gbentry">
+		<div style="float:left; padding-right: 1em"> 
+		<img src="<%=b.cover%>" style="height:100px"/></div>
+		<p class="btitle"><%=b.title%></p>
+		<p class="bauthos"><%= b.author %></p>
+		<p class="bcomment"><%= b.comment %></p>
+		<p class="useriwant"><%= b.user.iwant %></p>
+		<%= form_for ([b, Message.new]) do |f| %>
+			<%= f.text_field :body %>
+			<%= f.hidden_field :book_id, value: b.id %>
+			<%= f.hidden_field :recepient_id, value: b.user.id %>
+			<%= f.submit "Send message"%>
+		<% end %>
+		</div>
+	<% end %>
+</div>

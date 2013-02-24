@@ -3,6 +3,10 @@ class BooksController < ApplicationController
   
   def search
     @books = params[:search] ? apply_scopes(Book, params[:search]) : []
+    respond_to do |format|
+        format.html { render action: "search" }
+        format.js
+    end
   end
   # POST /pages
   # POST /pages.json

@@ -1,8 +1,8 @@
 <div class="first">
 <h2>I am looking for books</h2>
-<%= form_for :search, :url => search_path, :html => { :method => :get, :class => "" } do |f| %>
+<%= form_for :search, :url => search_path, :html => {:remote => true, :method => :get, :class => "" } do |f| %>
 	<%= f.text_field :keywords, :placeholder => "I am looking for book", class: 'search-input' %>
-	<%= f.submit 'Look for book', class: 'search-submit' %>
+	<%= f.submit 'Look for book',  class: 'search-submit' %>
 <% end %>
 
 </div>
@@ -48,7 +48,7 @@
 	<% end %>
 
 
-	<%= form_tag ('/adding') do %>
+	<%= form_tag '/adding' do %>
 		<%= text_field_tag :title, '', class: 'search-input' %>
 		<%= submit_tag 'Pick up book', class: 'search-submit' %>
 	<% end %>
